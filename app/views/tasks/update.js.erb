@@ -1,0 +1,11 @@
+
+$('#check-task-<%=@task.id%>').replaceWith("<%= check_box_tag "box", 1, task.status, data: { remote: true, url: edit_task_path(task), params: { status: !task.status}.to_param, method: "put" }, id: "box_#{task.id}"%>");
+<!-- $('#status-task-<%=@task.id%>').before("<%= j check_box_tag :name, 1, @task.status ,id: "check-task-#{@task.id}", data: { remote: true, url: "/tasks/#{@task.id}", params: { id: @task.id, status: @task.change_status}.to_param, method: "put" }%>"); -->
+$('#status-task-<%=@task.id%>').text("<%=@task.status%>");
+
+<% if @task.status == true%>
+	$('#title-task-<%=@task.id%>').addClass('line-through');
+<%else%>
+	$('#title-task-<%=@task.id%>').removeClass('line-through');
+
+<%end%>

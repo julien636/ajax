@@ -1,0 +1,9 @@
+<div id="email<%=newemail.id%>">
+<%= link_to email_path(newemail.id), remote: true, class:"list-group-item" do %>
+            <input type="checkbox">
+
+              <b><%= newemail.object %></b>
+
+             <small> <%= newemail.body[0,100] %></small>
+             <%end%>
+             </div>
