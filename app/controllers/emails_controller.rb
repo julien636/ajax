@@ -7,7 +7,21 @@ class EmailsController < ApplicationController
   end
 
   def show
+    @emails=Email.all.sort.reverse
     @email=Email.find(params[:id])
+    @email.update(status:true)
+    @email.save
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js { }
+    end
+  end
+
+  def update
+    @emails=Email.all.sort.reverse
+    @email=Email.find(params[:id])
+    @email.update(status:false)
+    @email.save
     respond_to do |format|
       format.html { redirect_to root_path }
       format.js { }

@@ -1,0 +1,20 @@
+            <% @emails.each do  |email|%>
+            <div id="email<%=email.id%>">
+            <!-- Tab panes -->
+            <% if email.status==false %>
+                <%= link_to email_path(email), remote: true, class:"list-group-item",style: 'background-color:lightblue' do %>
+                <input type="checkbox">
+                <b><%= email.object %></b>
+                <small> <%= email.body[0,100] %></small>
+                <% end %>
+                </div>
+                
+            <%else%>
+                <%= link_to email_path(email), remote: true, class:"list-group-item" do %>
+                <input type="checkbox">
+                <b><%= email.object %></b>
+                <small> <%= email.body[0,100] %></small>
+                <% end %>
+                </div>
+            <%end%>
+            <% end %>
